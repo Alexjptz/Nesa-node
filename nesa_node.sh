@@ -45,8 +45,9 @@ while true; do
     echo "2. Установить/Изменить/Восстaновить Nesa (Installation/Modify/Restore)"
     echo "3. Проверить контейнеры (Check containers)"
     echo "4. О ноде (About node)"
-    echo "5. Удалить ноду (Delete node)"
-    echo "6. Выход (Exit)"
+    echo "5. Восстановить Dashboard (Restore Dashboard)"
+    echo "6. Удалить ноду (Delete node)"
+    echo "7. Выход (Exit)"
     echo ""
     read -p "Выберите опцию (Select option): " option
 
@@ -169,6 +170,40 @@ while true; do
             echo ""
             ;;
         5)
+            # Restore dashboard
+            FILE="$HOME/.nesa/identity/node_id.id"
+
+            read -p "Введите новый NODE ID: " NODE_ID
+
+            show_orange "Переписываем Node ID (Rewrite Node ID)..."
+            sleep 1
+            if echo "NODE ID = $NODE_ID" > "$FILE"; then
+                sleep 1
+                echo ""
+                show_green "Успешно (Success)"
+                echo ""
+            else
+                sleep 1
+                echo ""
+                show_red "Ошибка (Fail)"
+                echo ""
+            fi
+
+            show_orange "Перезапускаем Nesa (Restart Nesa)..."
+            sleep 1
+            if docker restart orchestrator docker-watchtower-1 mongodb ipfs_node; then
+                sleep 1
+                echo ""
+                show_green "Успешно (Success)"
+                echo ""
+            else
+                sleep 1
+                echo ""
+                show_red "Ошибка (Fail)"
+                echo ""
+            fi
+            ;;
+        6)
             # deleting node
             show_orange "Удаляем ноду (Deletting node)..."
             echo ""
@@ -208,7 +243,7 @@ while true; do
             show_green "----- НОДА УДАЛЕНА. NODE DELETED -----"
             echo ""
             ;;
-        6)
+        7)
             # Stop script and exit
             show_red "Скрипт остановлен (Script stopped)"
             echo ""
