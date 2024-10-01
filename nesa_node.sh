@@ -34,11 +34,14 @@ find_and_print() {
     fi
 }
 
-show_orange "   \ |  __|   __|    \       \ |   _ \   _ \   __| "
-show_orange "  .  |  _|  \__ \   _ \     .  |  (   |  |  |  _| "
-show_orange " _|\_| ___| ____/ _/  _\   _|\_| \___/  ___/  ___| "
+show_orange " .__   __.  _______      _______.     ___ " && sleep 0.2
+show_orange " |  \ |  | |   ____|    /       |    /   \ " && sleep 0.2
+show_orange " |   \|  | |  |__      |   (----    /  ^  \ " && sleep 0.2
+show_orange " |  .    | |   __|      \   \      /  /_\  \ " && sleep 0.2
+show_orange " |  |\   | |  |____ .----)   |    /  _____  \ " && sleep 0.2
+show_orange " |__| \__| |_______||_______/    /__/     \__\ " && sleep 0.2
 echo ""
-sleep 2
+sleep 1
 
 while true; do
     echo "1. Подготовка к установке Nesa (Preparation)"
