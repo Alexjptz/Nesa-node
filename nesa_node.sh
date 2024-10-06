@@ -180,7 +180,7 @@ while true; do
 
             show_orange "Переписываем Node ID (Rewrite Node ID)..."
             sleep 1
-            if echo "NODE ID = $NODE_ID" > "$FILE"; then
+            if echo "$NODE_ID" > "$FILE"; then
                 sleep 1
                 echo ""
                 show_green "Успешно (Success)"
