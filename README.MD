@@ -2,9 +2,9 @@ Nesa node linux instalation script
 
 MIN SPEC
 
-4 GB RAM,
-Multi-core processor,
-50 GB SSD,
+6 CPU
+16 GB RAM,
+400 GB SSD,
 
 Commands:
 
